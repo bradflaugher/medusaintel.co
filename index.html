@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --text-color: #e6edf3;
+            --accent-color: #58a6ff;
+            --link-color: #58a6ff; /* Consistent link color */
+        }
+
+        body {
+            font-family: 'Fira Code', monospace; /* Use Fira Code */
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            text-align: center;
+            padding-top: 50px;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center horizontally */
+            justify-content: center; /* Center vertically */
+            min-height: 100vh; /* Full viewport height */
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .loading-dots {
+            display: inline-block;
+            width: 50px;
+            text-align: left;
+        }
+        .container {
+             max-width:800px;
+             padding-left: 20px;
+             padding-right: 20px;
+             margin: 0 auto;
+        }
+        p {
+            line-height: 1.6; /* Better line spacing */
+            margin-bottom: 10px; /* Space between paragraphs */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Redirecting to <a href="https://bradflaugher.com/mindmap">bradflaugher.com/mindmap</a><span class="loading-dots"></span></p>
+        <p>If you are not redirected automatically, click the link above.</p>
+    </div>
+
+    <script>
+        function animateLoadingDots() {
+            const dots = document.querySelector('.loading-dots');
+            let dotsContent = '.';
+            setInterval(() => {
+                dotsContent += '.';
+                if (dotsContent.length > 3) {
+                    dotsContent = '.';
+                }
+                dots.textContent = dotsContent;
+            }, 500);
+        }
+
+        setTimeout(function() {
+            window.location.href = "https://bradflaugher.com/mindmap";
+        }, 3000);
+
+        animateLoadingDots();
+    </script>
+</body>
+</html>
+
